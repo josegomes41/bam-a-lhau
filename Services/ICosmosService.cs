@@ -10,7 +10,7 @@ public interface ICosmosService
 
         return new List<Product>()
         {
-            new Product(id: "baaa4d2d-5ebe-45fb-9a5c-d06876f408e0", category: new Category(name: "Components, Road Frames"), sku: "FR-R72R-60", name: """ML Road Frame - Red, 60""", description: """The product called "ML Road Frame - Red, 60".""", price: 594.83000000000004m),
+            new Product(id: "baaa4d2d-5ebe-45fb-9a5c-d06876f408e0", category: new Category(name: "Components, Road Frames 2"), sku: "FR-R72R-60", name: """ML Road Frame - Red, 60""", description: """The product called "ML Road Frame - Red, 60".""", price: 594.83000000000004m),
             new Product(id: "bd43543e-024c-4cda-a852-e29202310214", category: new Category(name: "Components, Forks"), sku: "FK-5136", name: """ML Fork""", description: """The product called "ML Fork".""", price: 175.49000000000001m),
             new Product(id: "2aeceeb7-adb8-4c43-9050-2054420b5a06", category: new Category(name: "Components, Road Frames"), sku: "FR-R38R-52", name: """LL Road Frame - Red, 52""", description: """The product called "LL Road Frame - Red, 52".""", price: 337.22000000000003m),
             new Product(id: "e1a27eca-0ec8-48b7-8998-b0971d027280", category: new Category(name: "Components, Road Frames"), sku: "FR-R38B-62", name: """LL Road Frame - Black, 62""", description: """The product called "LL Road Frame - Black, 62".""", price: 337.22000000000003m),
