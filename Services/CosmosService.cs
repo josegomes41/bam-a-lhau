@@ -35,4 +35,20 @@ public class CosmosService : ICosmosService
 
         return results;
     }
+
+    public async Task<IEnumerable<Subscription>> GetLogsAsync(string subscriptionId)
+    {
+        var query = this.container.GetItemQueryIterator<Subscription>(new QueryDefinition(QUERY_STRING_ALL));
+        List<Subscription> results = new List<Subscription>();
+        while (query.HasMoreResults)
+        {
+            var response = await query.ReadNextAsync();
+
+            results.AddRange(response.ToList());
+        }
+
+        return results;
+    }
+
+
 }
