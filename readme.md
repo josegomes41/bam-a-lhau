@@ -15,6 +15,8 @@ This project framework provides the following features:
 
 ### Prerequisites
 
+
+
 (ideally very short, if any)
 
 - .NET 6 or later
