@@ -5,7 +5,7 @@ namespace bamalhau.Services;
 public interface ICosmosService
 {
 
-    public Task<IEnumerable<string>> GetSubscriptionsList();
+
     public async Task<IEnumerable<Product>> RetrieveActiveProductsAsync()
     {
         await Task.Delay(1);
@@ -83,4 +83,6 @@ public interface ICosmosService
             new Product(id: "dab34a6d-44b5-4cd6-92b6-3c1eab1de1a4", category: new Category(name: "Components, Mountain Frames"), sku: "FR-M94B-42", name: """HL Mountain Frame - Black, 42""", description: """The product called "HL Mountain Frame - Black, 42".""", price: 1349.5999999999999m)
         };
     }
+
+    Task<IEnumerable<Subscription>> GetSubscriptionsAsync();
 }

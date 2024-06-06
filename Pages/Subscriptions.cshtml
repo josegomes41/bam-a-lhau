@@ -1,0 +1,30 @@
+﻿@page
+@model SubscriptionsPageModel
+
+
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">SubscriptionId</th>
+            <th scope="col">Created</th>
+            <th scope="col">Source</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        @foreach (Subscription item in Model.Subscriptions ?? Enumerable.Empty<Subscription>())
+        {
+            
+            <tr class="table-info">
+                <th scope="row">
+                    @item.SubscriptionId
+                </th>
+                <td>
+                    @item.Created
+                </td>
+                <td>
+                    @item.Source
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -6,21 +6,26 @@ namespace bamalhau.Services;
 
 public class CosmosService : ICosmosService
 {
-    private Container _container;
-    private static string QUERY_STRING_ALL = "SELECT distinct Subscription.SubscriptionId FROM Subscription";
-    public CosmosService(
-           CosmosClient dbClient,
-           string databaseName,
-           string containerName)
+    private readonly CosmosClient _client;
+
+    private static string QUERY_STRING_ALL = "SELECT * FROM Subscription";
+    public CosmosService()
     {
-        this._container = dbClient.GetContainer(databaseName, containerName);
+        _client = new CosmosClient(
+       connectionString: Environment.GetEnvironmentVariable("AZURE_COSMOS_CONNECTIONSTRING"));
     }
 
-    public async Task<IEnumerable<string>> GetSubscriptionsList()
+    private Container container
     {
-        
-        var query = this._container.GetItemQueryIterator<string>(new QueryDefinition(QUERY_STRING_ALL));
-        List<string> results = new List<string>();
+        get => _client.GetDatabase("BAM").GetContainer("Subscription");
+    }
+
+
+
+    public async Task<IEnumerable<Subscription>> GetSubscriptionsAsync()
+    {
+        var query = this.container.GetItemQueryIterator<Subscription>(new QueryDefinition(QUERY_STRING_ALL));
+        List<Subscription> results = new List<Subscription>();
         while (query.HasMoreResults)
         {
             var response = await query.ReadNextAsync();
@@ -29,6 +34,5 @@ public class CosmosService : ICosmosService
         }
 
         return results;
-
     }
 }
