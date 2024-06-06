@@ -4,6 +4,8 @@ namespace bamalhau.Services;
 
 public interface ICosmosService
 {
+
+    public Task<IEnumerable<string>> GetSubscriptionsList();
     public async Task<IEnumerable<Product>> RetrieveActiveProductsAsync()
     {
         await Task.Delay(1);
