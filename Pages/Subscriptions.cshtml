@@ -15,18 +15,21 @@
         @foreach (Subscription item in Model.Subscriptions ?? Enumerable.Empty<Subscription>())
         {
             
-            <tr class="table-info">
-                <th scope="row">
-                    @item.CorrelationId
-                </th>
-                <td>
-                    @item.Application
-                </td>
-                <td>
-                    @item.UpdateDate
-                </td>
+            <tr  class="table-info">
                 
-            </tr>
+                <th scope="row">
+                    <a href="@Url.Page("/Logs", new { CorrelationId = item.CorrelationId })" style="color: black; font-weight: bold; text-decoration: none;">
+                        @item.CorrelationId
+                    </a>
+                </th>
+                    <td>
+                        @item.Application
+                    </td>
+                    <td>
+                        @item.UpdateDate
+                    </td>
+                
+                </tr>
         }
     </tbody>
 </table>

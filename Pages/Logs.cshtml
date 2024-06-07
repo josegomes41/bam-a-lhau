@@ -14,7 +14,6 @@
         <tr>
             <th scope="col">Date</th>
             <th scope="col">Application</th>
-            <th scope="col">Log</th>
             <th scope="col">Log Resume</th>
         </tr>
     </thead>
@@ -24,8 +23,7 @@
             <tr class="table-info">
                 <th scope="row">@item.UpdateDate</th>
                 <td>@item.Application</td>
-                <td>@item.log</td>
-                <td>@item.resume</td>
+                <td><span title="@item.log">@item.resume</span></td>
             </tr>
         }
     </tbody>
