@@ -17,8 +17,8 @@
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <tr>
-            <th scope="col">Date</th>
             <th scope="col">Application</th>
+            <th scope="col">Date</th>
             <th scope="col">Log Resume</th>
         </tr>
     </thead>
@@ -27,7 +27,7 @@
         {
             <tr class="table-info">
 
-                <th class="applicationCol">@item.Application</th>
+                <th class="applicationCol"><p>@item.Application</p></th>
                 <td scope="row">
                     @{
                         DateTime dateTime = DateTime.Parse(item.UpdateDate, null, System.Globalization.DateTimeStyles.RoundtripKind);
