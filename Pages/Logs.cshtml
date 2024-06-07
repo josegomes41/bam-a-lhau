@@ -9,6 +9,11 @@
 <h2>Logs for Correlation ID: @Model.CorrelationId</h2>
 <h3>Number Of Log @Model.LogCount</h3>
 
+
+<div class="form-group " style="margin: 20px 0px">
+    <input type="text" id="applicationSearchInput" class="form-control" placeholder="Search by Application">
+</div>
+
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <tr>
@@ -21,8 +26,9 @@
         @foreach (var item in Model.Logs ?? Enumerable.Empty<Log>())
         {
             <tr class="table-info">
-                <th scope="row">@item.UpdateDate</th>
-                <td>@item.Application</td>
+
+                <th scope="row">@item.Application</th>
+                <td >@item.UpdateDate</td>
                 <td><span title="@item.log">@item.resume</span></td>
             </tr>
         }

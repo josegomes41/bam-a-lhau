@@ -85,6 +85,24 @@
                 }
             });
         });
+
+
+        const applicationSearchInput = document.getElementById('applicationSearchInput');
+        const applicationRows = document.querySelectorAll('.table-group-divider tr');
+
+        applicationSearchInput.addEventListener('input', function () {
+            const applicationSearchText = applicationSearchInput.value.toLowerCase();
+
+            applicationRows.forEach(appRow => {
+                const aplication = appRow.querySelector('th a').textContent.toLowerCase();
+                if (aplication.includes(applicationSearchText)) {
+                    appRow.style.display = 'table-row';
+                } else {
+                    appRow.style.display = 'none';
+                }
+            });
+        });
     </script>
+
 </body>
 </html>
