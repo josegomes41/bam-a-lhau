@@ -70,31 +70,16 @@
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
 
     <script>
-        const searchInput = document.getElementById('searchInput');
-        const rows = document.querySelectorAll('.table-group-divider tr');
-
-        searchInput.addEventListener('input', function () {
-            const searchText = searchInput.value.toLowerCase();
-
-            rows.forEach(row => {
-                const correlationId = row.querySelector('th a').textContent.toLowerCase();
-                if (correlationId.includes(searchText)) {
-                    row.style.display = 'table-row';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
 
 
-        const applicationSearchInput = document.getElementById('applicationSearchInput');
+        const applicationSearchInput = document.getElementById('searchInput');
         const applicationRows = document.querySelectorAll('.table-group-divider tr');
 
         applicationSearchInput.addEventListener('input', function () {
             const applicationSearchText = applicationSearchInput.value.toLowerCase();
 
             applicationRows.forEach(appRow => {
-                const aplication = appRow.querySelector('th p').textContent.toLowerCase();
+                const aplication = appRow.querySelector('th a').textContent.toLowerCase();
                 if (aplication.includes(applicationSearchText)) {
                     appRow.style.display = 'table-row';
                 } else {
