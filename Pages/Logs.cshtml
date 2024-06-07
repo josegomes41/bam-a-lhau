@@ -1,6 +1,6 @@
 ﻿@page "{CorrelationId}"
 @model bamalhau.Pages.LogsPageModel
-@using Newtonsoft.Json
+@using System.Text.Json
 
 @{
     ViewData["Title"] = "Logs";
@@ -26,10 +26,26 @@
         @foreach (var item in Model.Logs ?? Enumerable.Empty<Log>())
         {
             <tr class="table-info">
+                <th scope="row">
+                    @{
+                        DateTime dateTime = DateTime.Parse(item.UpdateDate, null, System.Globalization.DateTimeStyles.RoundtripKind);
+                        string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                    }
+                    @formattedDate
+                </th>
+                <td>@item.Application</td>
+                @{
+                    // Assuming item.UpdateDate contains the JSON string
+                    var logjson = JsonSerializer.Deserialize<object>(item.log);
 
-                <th scope="row">@item.Application</th>
-                <td >@item.UpdateDate</td>
-                <td><span title="@item.log">@item.resume</span></td>
+                    var options = new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                    
+                };
+                    string prettyJson = JsonSerializer.Serialize(logjson, options);
+                }
+                <td><pre title="@prettyJson">@item.resume</pre></td>
             </tr>
         }
     </tbody>
