@@ -1,0 +1,35 @@
+﻿@page "{CorrelationId}"
+@model bamalhau.Pages.LogsPageModel
+@using Newtonsoft.Json
+
+@{
+    ViewData["Title"] = "Logs";
+}
+
+<h2>Logs for Correlation ID: @Model.CorrelationId</h2>
+<h3>Number Of Log @Model.LogCount</h3>
+
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Application</th>
+            <th scope="col">Log</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        @foreach (var item in Model.Logs ?? Enumerable.Empty<Log>())
+        {
+            <tr class="table-info">
+                <th scope="row">@item.UpdateDate</th>
+                <td>@item.Application</td>
+                <td>@item.log</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Model.Logs?.Any() ?? true)
+{
+    <p>No logs found for this correlation ID.</p>
+}

@@ -1,8 +1,9 @@
 ﻿namespace bamalhau.Models;
-public record Subscription( 
+public record Log(
         string CorrelationId,
+        string Application,
         string UpdateDate,
-        string Application
+        object log
     );
-        
+
 

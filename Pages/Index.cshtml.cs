@@ -8,7 +8,7 @@ public class IndexPageModel : PageModel
 {
     private readonly ICosmosService _cosmosService;
 
-    public IEnumerable<Product>? Products { get; set; }
+    public IEnumerable<Subscription>? Subscriptions { get; set; }
 
     public IndexPageModel(ICosmosService cosmosService)
     {
@@ -17,6 +17,6 @@ public class IndexPageModel : PageModel
 
     public async Task OnGetAsync()
     {
-        Products ??= await _cosmosService.RetrieveActiveProductsAsync();
+        Subscriptions ??= await _cosmosService.RetrieveLastSubscriptionsAsync();
     }
 }

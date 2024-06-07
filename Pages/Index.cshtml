@@ -12,28 +12,28 @@
     </div>
 </header>
 <div class="row" data-masonry='{"percentPosition": true }'>
-    @foreach(Product item in Model.Products ?? Enumerable.Empty<Product>())
+    @foreach(Subscription item in Model.Subscriptions ?? Enumerable.Empty<Subscription>())
     {
         <div class="col-sm-6 col-lg-4 mb-4">
+            <a href="@Url.Page("/Logs", new { CorrelationId = item.CorrelationId })" class="text-decoration-none">
             <div class="card">
                 <h6 class="card-header bg-primary text-white d-flex w-100 justify-content-between">
-                    @item.sku
-                    <span class="badge text-bg-light">
-                        @(item.price.ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("en-US")))
-                    </span>
+                    @item.CorrelationId
+                    
                 </h6>
                 <div class="card-body">
                     <h5 class="card-title text-center">
-                        @item.name
+                        @item.CorrelationId
                     </h5>
-                    <p class="card-text text-center">@item.description</p>
+                    <p class="card-text text-center">@item.Application</p>
                 </div>
                 <h6 class="card-footer bg-secondary text-white text-center">
                     <small>
-                        @item.category.name
+                        @item.UpdateDate
                     </small>
                 </h6>
             </div>
+            </a>
         </div>
     }
 </div>

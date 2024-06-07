@@ -6,11 +6,9 @@
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <tr>
-            <th scope="col">SubscriptionId</th>
-            <th scope="col">Created</th>
-            <th scope="col">Source</th>
-            <th scope="col">Name</th>
-            <th scope="col">Log</th>
+            <th scope="col">CorrelationId</th>
+            <th scope="col">Last Application</th>
+            <th scope="col">Last Update</th>
         </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -19,20 +17,15 @@
             
             <tr class="table-info">
                 <th scope="row">
-                    @item.SubscriptionId
+                    @item.CorrelationId
                 </th>
                 <td>
-                    @item.Created
+                    @item.Application
                 </td>
                 <td>
-                    @item.Source
+                    @item.UpdateDate
                 </td>
-                <td>
-                    @item.ClientName
-                </td>
-                <td>
-                    @{JsonConvert.SerializeObject(item.log, Formatting.Indented);}
-                </td>
+                
             </tr>
         }
     </tbody>

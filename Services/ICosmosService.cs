@@ -85,4 +85,8 @@ public interface ICosmosService
     }
 
     Task<IEnumerable<Subscription>> GetSubscriptionsAsync();
+
+    Task<IEnumerable<Log>> GetLogsAsync(string CorrelationId);
+
+    Task<IEnumerable<Subscription>> RetrieveLastSubscriptionsAsync();
 }
