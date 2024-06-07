@@ -94,7 +94,7 @@
             const applicationSearchText = applicationSearchInput.value.toLowerCase();
 
             applicationRows.forEach(appRow => {
-                const aplication = appRow.querySelector('th a').textContent.toLowerCase();
+                const aplication = appRow.querySelector('th .applicationCol').textContent.toLowerCase();
                 if (aplication.includes(applicationSearchText)) {
                     appRow.style.display = 'table-row';
                 } else {

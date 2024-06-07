@@ -26,14 +26,15 @@
         @foreach (var item in Model.Logs ?? Enumerable.Empty<Log>())
         {
             <tr class="table-info">
-                <th scope="row">
+
+                <th class="applicationCol">@item.Application</th>
+                <td scope="row">
                     @{
                         DateTime dateTime = DateTime.Parse(item.UpdateDate, null, System.Globalization.DateTimeStyles.RoundtripKind);
                         string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
                     }
                     @formattedDate
-                </th>
-                <td>@item.Application</td>
+                </td>
                 @{
                     // Assuming item.UpdateDate contains the JSON string
                     var logjson = JsonSerializer.Deserialize<object>(item.log);
