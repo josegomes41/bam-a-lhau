@@ -3,7 +3,8 @@ public record Log(
         string CorrelationId,
         string Application,
         string UpdateDate,
-        object log
+        string log,
+        string resume
     );
 
 
