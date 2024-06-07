@@ -9,7 +9,7 @@ public class CosmosService : ICosmosService
     private readonly CosmosClient _client;
     private readonly ILogger<CosmosService> _log;
 
-    private static string QUERY_STRING_ALL = "SELECT * FROM Subscription";
+    private static string QUERY_STRING_ALL = "SELECT * FROM Subscription order by Subscription.UpdateDate desc";
     private static string QUERY_LAST_6 = "SELECT top 6 * FROM Subscription order by Subscription.UpdateDate desc";
     public CosmosService(ILogger<CosmosService> log)
         
