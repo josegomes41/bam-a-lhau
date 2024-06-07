@@ -31,7 +31,11 @@
                         @item.Application
                     </td>
                     <td>
-                        @item.UpdateDate
+                    @{
+                        DateTime dateTime = DateTime.Parse(item.UpdateDate, null, System.Globalization.DateTimeStyles.RoundtripKind);
+                        string formattedDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                    }
+                    @formattedDate
                     </td>
                 
                 </tr>
